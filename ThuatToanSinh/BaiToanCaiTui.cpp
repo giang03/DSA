@@ -3,26 +3,24 @@ using namespace std;
 typedef long long ll;
 
 int n,m;
-int w[100] , v[100], x[100];
-pair <int,int> pa[100];
-int s = 0, b = 0;
-int ans = 0;
+int w[1001] , v[1001], x[1001];
+pair <int,int> pa[1001];
+ll s = 0, b = 0;
+ll ans = 0;
 
 bool cmp(pair <int,int> a, pair <int,int> b){
     return (double)a.second/a.first > (double)b.second/b.first;
 }
-
 void khoitao(){
     cin >> n >> m;
     b = m;
     for(int i = 0; i < n; i++){
         cin >> w[i];
-        x[i] = 0;
+        pa[i].first = w[i];
     }
     for(int i = 0; i < n; i++){
         cin >> v[i];
-        pa[i].first = w[i]; // khối lượng
-        pa[i].second = v[i]; // giá trị
+        pa[i].second = v[i];
     }
     sort(pa,pa+n,cmp);
 }
